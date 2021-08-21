@@ -1,0 +1,86 @@
+add  <link rel="stylesheet" href="{{ 'faq.css' | asset_url }}" type="text/css" media="print" onload="this.media='all';onLoadStylesheet()">
+to theme.liquid
+
+
+
+.feqheader h1 {
+    font-size: 40px;
+    color: #f15c22;
+    text-transform: uppercase;
+    margin-bottom: 0;
+    font-weight: 600;
+    letter-spacing: 0;
+}
+.feqheader {
+    text-align: center;
+    padding-top: 20px;
+  padding-bottom: 50px;
+  }
+
+.collapse {
+    &:not(.show) {
+      display: none;
+    }
+  }
+  .collapsing {
+    height: 0;
+    overflow: hidden;
+    @include transition($transition-collapse);
+  
+    
+  }
+.accordion-button::after {
+    flex-shrink: 0;
+    width: 0;
+    height: 0;
+    margin-right: auto;
+    content: "";
+    background-image: url(../)!important;
+    background-size: 1.25rem;
+    transition: transform .2s ease-in-out;
+    position: absolute;
+    top: 50%;
+    left: 8px;
+    transform: translateY(-50%) rotate(0)!important;
+    border-left: 10px solid #ff000000;
+    border-right: 10px solid #00800000;
+    border-top: 12px solid #f15c22;
+    transition: all .3s ease;
+}
+
+   .accordion-button {
+      border-left: 8px solid transparent;
+     padding: 1rem 2.3rem;
+    font-size: 20px!important;
+    letter-spacing: 0;
+    color: #111;
+  }
+
+  .accordion-button:hover {
+      border-left: 8px solid orange;
+     background-color: pink;
+  }
+  .accordion-header:hover {
+      margin-bottom: 0;
+    
+  }
+  .accordion-collapse collapse{
+      
+      border-left: 8px solid transparent !important;
+  }
+  
+  .show {
+      display: block!important;
+      border-left: 8px solid orange;
+        transition: all .3s ease;
+  }
+  .accordion-button:not(.collapsed) {
+     
+      border-left: 8px solid orange;
+  }
+  .accordion-button:focus {
+      z-index: 3;
+     border-color: #86b7fe;
+      outline: 0;
+      box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 25%);
+  }
