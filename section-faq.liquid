@@ -1,0 +1,92 @@
+<div class="container">
+  <div class="feqheader">
+	<h1>{{ section.settings.title}}</h1>
+  </div>
+  
+  <div class="row">
+  <div class="col-md-12">
+   
+  <div class="accordion" id="faqBox">
+ 
+    {% assign faq_id = 1 %}
+    
+    {% for block in section.blocks %}
+    
+    {% assign faq_id = faq_id |plus: 1 %}
+    
+    <div class="accordion-item">
+    <h2 class="accordion-header" id="heading{{faq_id}}">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{faq_id}}" aria-expanded="false" aria-controls="collapse{{faq_id}}">
+       {{ block.settings.faqtitle }}
+      </button>
+    </h2>
+    <div id="collapse{{faq_id}}" class="accordion-collapse collapse" aria-labelledby="heading{{faq_id}}" data-bs-parent="#faqBox">
+      <div class="accordion-body">
+       {{ block.settings.faqdescription }}
+      </div>
+    </div>
+  </div>
+    
+    {% endfor %}
+    
+  
+ 
+</div>
+    
+    
+    
+    
+    
+  </div>
+  </div>
+</div>
+
+
+{% schema %}
+  {
+"name": "FAQ section",
+"settings": [
+{
+ "type":"text",
+ "id":"title",
+ "label":"Title Name",
+ "default":"FREQUENTLY ASKED QUESTION"
+
+}
+],
+
+"blocks":[
+		{
+		"type": "text_block",
+		"name": "faq list",
+		"settings": [
+              {
+                  "type": "text",
+                  "id": "faqtitle",
+                  "label": "Faq Title Name"
+
+              },
+			  {
+                  "type": "textarea",
+                  "id": "faqdescription",
+                  "label": "Faq Description Name"
+
+              }
+
+]
+
+
+
+} 
+
+]
+
+}
+
+{% endschema %}
+
+
+
+
+{% javascript %}
+{% endjavascript %}
